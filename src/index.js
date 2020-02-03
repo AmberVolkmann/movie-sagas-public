@@ -80,6 +80,15 @@ const update = (state= [], action) => {
     }
 }
 
+const currentMovie = (state =-1, action) => {
+    switch (action.type) {
+        case 'CURRENT_MOVIE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const details = (state= [], action) => {
     switch (action.type) {
         case 'GET_DETAILS':
@@ -95,6 +104,7 @@ const storeInstance = createStore(
         movies,
         genres,
         update,
+        currentMovie,
         details
     }),
     // Add sagaMiddleware to our store

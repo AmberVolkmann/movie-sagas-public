@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Details from '../Details/Details'
+import { withRouter } from 'react-router-dom';
 
 class MovieCard extends Component {
 
-    details = () => {
-        this.props.history.push('/details');
+    details = (id) => {
         this.props.dispatch({
             type: 'GET_DETAILS',
-            payload: {...this.props.movie}
+            payload: id
         })
-
+        this.props.history.push(`/details`)
     }
 
     render() {
@@ -37,4 +38,4 @@ const mapStateToProps = (reduxStore) => ({
     reduxStore
 })
 
-export default connect(mapStateToProps) (MovieCard);
+export default withRouter(connect(mapStateToProps) (MovieCard));
