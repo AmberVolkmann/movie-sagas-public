@@ -16,7 +16,7 @@ class Details extends Component {
 
 
   render() {
-    let currentID = this.props.reduxStore.currentMovie
+    // let currentID = this.props.reduxStore.currentMovie
     return (
       <Router>
           <h1>Details</h1>
