@@ -19,8 +19,13 @@ class Details extends Component {
     let currentID = this.props.reduxStore.currentMovie
     return (
       <Router>
+          <h1>Details</h1>
         <div>
-            <h1>{currentID.title}</h1>
+            {/* <MovieCard id={currentID} /> */}
+            <h2>{this.props.reduxStore.details.title}</h2>
+            <p>{this.props.reduxStore.details.description}</p>
+            <button onClick={this.goHome}>Go Back</button>
+            <button onClick={this.edit}>Edit Movie Information</button>
    
         </div>
       </Router>

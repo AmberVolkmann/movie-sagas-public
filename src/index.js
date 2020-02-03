@@ -16,6 +16,7 @@ import createSagaMiddleware from 'redux-saga';
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('UPDATE_MOVIE', updateMovie);
+    yield takeEvery('GET_DETAILS', getDetails);
 }
 
 function* getMovies(action) {
@@ -27,6 +28,20 @@ function* getMovies(action) {
         yield put({
             type: 'SET_MOVIES',
             payload: response.data
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function* getDetails(action) {
+    try {
+        //GO TO SERVER< DB get all things in cat. table
+        let response = yield axios.get(`/api/movies/${action.payload}`)
+        console.log(response.data)
+        yield put({
+            type: 'GET_DETAILS',
+            payload: response.data[0]
         })
     } catch (err) {
         console.log(err)
