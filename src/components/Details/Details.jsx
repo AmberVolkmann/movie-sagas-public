@@ -4,6 +4,12 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 class Details extends Component {
 
+    goHome = () => {
+        this.props.history.push('/')
+    }
+
+    
+
 
   render() {
     return (
