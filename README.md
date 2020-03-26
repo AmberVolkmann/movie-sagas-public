@@ -1,4 +1,4 @@
-# Project Name
+# Movie Sagas
 ## Description
  This project allows users to interact with a database of movies. Upon load of the homepage, the user is able to click on the the movie post to display the details of the movie - including the summary and genres. From the details page, the user is able to edit both the details and summary, and save it to the database.
 
