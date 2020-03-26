@@ -22,18 +22,21 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          
-          <div>
-              <Route exact path="/" component={Home} />
 
-              <Route exact path="/details" component={Details} />
-              <Route exact path="/edit" component={Edit} />
-            </div>
+          <Route path="/" exact component={MovieList} />
+          <Route path="/details" component={Details} />
+          <Route path="/edit" component={Edit} />
+          <pre>
+            {JSON.stringify(this.props, null, 2)}
+          </pre>
+
         </div>
       </Router>
     );
   }
 }
 
+const mapStateToProps = reduxState => reduxState;
 
-export default connect() (App);
+export default connect(mapStateToProps)(App);
+
