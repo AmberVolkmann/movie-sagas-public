@@ -2,14 +2,19 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
-const movieRouter = require('./routes/movie.router')
+
+require('dotenv').config()
+
+// Router variables
+const moviesRouter = require('./routes/movies.router')
+
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-app.use('/movies', movieRouter);
+app.use('/api/movies', moviesRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
